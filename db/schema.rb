@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_18_210442) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_18_220633) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "car_id", null: false
+    t.bigint "seller_id", null: false
+    t.bigint "city_id", null: false
+    t.index ["car_id"], name: "index_appointments_on_car_id"
+    t.index ["city_id"], name: "index_appointments_on_city_id"
+    t.index ["seller_id"], name: "index_appointments_on_seller_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -27,6 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_18_210442) do
   create_table "cities", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "country_id", null: false
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -47,4 +57,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_18_210442) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "appointments", "cars"
+  add_foreign_key "appointments", "cities"
+  add_foreign_key "appointments", "sellers"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "cities", "countries"
 end
