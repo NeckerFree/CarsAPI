@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_001941) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_182740) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,18 +35,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_001941) do
   create_table "cars", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "model"
+    t.string "color"
+    t.text "description"
+    t.float "price"
+    t.string "brand"
+    t.string "photo"
   end
 
   create_table "cities", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "country_id", null: false
+    t.string "name"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "countries", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "sellers", force: :cascade do |t|
@@ -58,6 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_001941) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "age"
+    t.string "phone"
   end
 
   add_foreign_key "appointments", "cars"
