@@ -3,20 +3,19 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.where(user_id: current_user.id)
 
     render json: @appointments
   end
 
-  # GET /appointments/1
   def show
+    @appointment=set_appointment
     render json: @appointment
   end
 
-  # POST /appointments
   def create
     @appointment = Appointment.new(appointment_params)
-
+    @appointment.user_id=current_user.id
     if @appointment.save
       render json: @appointment, status: :created, location: @appointment
     else
@@ -24,8 +23,8 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /appointments/1
   def update
+    @appointment=set_appointment
     if @appointment.update(appointment_params)
       render json: @appointment
     else
@@ -33,8 +32,8 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # DELETE /appointments/1
   def destroy
+    @appointment=set_appointment
     @appointment.destroy
   end
 
@@ -46,6 +45,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.fetch(:appointment, {})
-    end
+      params.fetch(:appointment, {:date_for, :duration, :brand, :car_id,:seller_id, :city_id})
+     end
 end
