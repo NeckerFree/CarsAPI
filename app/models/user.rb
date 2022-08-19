@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
     has_many :appointments, dependent: :destroy
 
-    has_many :sellers, through: :appointments
-    has_many :cars, through: :appointments
+    has_many :sellers, through: :appointments, dependent: :destroy
+    has_many :cars, through: :appointments, dependent: :destroy
 
 end
