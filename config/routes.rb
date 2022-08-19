@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :selections
+  resources :users do
+    resources :appointments
+  end  
   resources :cities
   resources :countries
   resources :sellers
-  resources :appointments
   resources :cars
   post 'authenticate', to: 'authentication#authenticate'
 end

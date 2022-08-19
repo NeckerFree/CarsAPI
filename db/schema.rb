@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_18_220633) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_001941) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_18_220633) do
     t.bigint "car_id", null: false
     t.bigint "seller_id", null: false
     t.bigint "city_id", null: false
+    t.integer "duration", null: false
+    t.string "branch", null: false
+    t.datetime "date_for", null: false
     t.index ["car_id"], name: "index_appointments_on_car_id"
     t.index ["city_id"], name: "index_appointments_on_city_id"
     t.index ["seller_id"], name: "index_appointments_on_seller_id"
