@@ -1,4 +1,4 @@
-user=User.create!(email: 'example@mail.com' , password: '123456' , password_confirmation: '123456')
+user=User.create!(name: 'Amrendra K' ,email: 'amrendra@mail.com' , password: '123456' , password_confirmation: '123456', age: '40', phone:"9930109581")
 user.save
 # user=User.find(1)
 # seller=Seller.create!()
