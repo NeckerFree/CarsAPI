@@ -3,8 +3,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments
   def index
-    @appointments = Appointment.where(user_id: current_user.id)
-
+    @appointments = Appointment.where(user_id: params[:user_id])
     render json: @appointments
   end
 
@@ -15,9 +14,8 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(appointment_params)
-    @appointment.user_id=current_user.id
     if @appointment.save
-      render json: @appointment, status: :created, location: @appointment
+      render json: @appointment, status: :created
     else
       render json: @appointment.errors, status: :unprocessable_entity
     end
@@ -45,6 +43,6 @@ class AppointmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def appointment_params
-      params.fetch(:appointment, {:date_for, :duration, :brand, :car_id,:seller_id, :city_id})
+      params.fetch(:appointment, {}).permit(:date_for, :duration, :branch, :car_id, :seller_id, :city_id, :user_id)
      end
 end
