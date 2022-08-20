@@ -1,42 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe 'Appointments', type: :request do
-  describe 'POST/create' do
-    context 'with valid parameters' do
-        let!(:my_appointment) { FactoryBot.create(:appointment) }
+  include ApiHelpers
+  context 'Create new Appointment' do
+    let(:my_user) {FactoryBot.create(:user)}
+    let(:my_car) {FactoryBot.create(:car)}
+    let(:my_seller) {FactoryBot.create(:seller)}
+    let(:my_city) {FactoryBot.create(:city)}
+    let(:my_branch) { Faker::Address.community }
+    let(:my_date_for) { Faker::Date.forward(days: 30) }
+    let(:my_duration) { Faker::Number.within(range: 1..9) }
+    before do
+      post "http://localhost:3000/users/#{my_user.id}/appointments" , headers: auth_headers(my_user), 
+      params:
+          { 
+            duration: my_duration,
+            branch: my_branch,
+            date_for: my_date_for,
+            user_id:  my_user.id,
+            car_id: my_car.id,
+            seller_id: my_seller.id,
+            city_id: my_city.id
+         }
+       
+  end
+        # it 'returns the branch' do
+        #     expect(json['branch']).to eq(my_branch)
+        # end
 
-        before do
-            post "/users/#{my_appointment.user_id}/appointments", appointment_params:
-                            { appointment: {
-                                branch: my_appointment.branch,
-                                date_for: my_appointment.date_for
-                        } }
-        end
-
-        it 'returns the branch' do
-            expect(json['branch']).to eq(my_appointment.branch)
-        end
-
-        it 'returns the date_for' do
-            expect(json['date_for']).to eq(my_appointment.date_for)
-        end
+        # it 'returns the date_for' do
+        #     expect(json['date_for']).to eq(my_date_for)
+        # end
 
         it 'returns a created status' do
             expect(response).to have_http_status(:created)
         end
-    end
-    context 'with invalid parameters' do
-        before do
-            post "/users/#{my_appointment.user_id}/appointments", params:
-                            { appointment: {
-                                branch: "",
-                                date_for: "2022-13-30T12:00:00.000Z"
-                            } }
-        end
-
-      it 'returns a unprocessable entity status' do
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
   end
 end
