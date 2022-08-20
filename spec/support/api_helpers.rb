@@ -10,9 +10,9 @@ module ApiHelpers
 
     def auth_headers(user)
       token = confirm_and_login_user(user)
-      {
+      { 
         'Authorization': "Bearer #{token}"
       }
     end
 end
-
+# "ACCEPT" => "application/json",

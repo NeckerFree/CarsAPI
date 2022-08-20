@@ -9,7 +9,7 @@ FactoryBot.define do
         password_confirmation { "123456" }
     end
     factory :seller do 
-        
+        name {Faker::Name.name }
     end    
     factory :country do 
         name {Faker::Address.country}

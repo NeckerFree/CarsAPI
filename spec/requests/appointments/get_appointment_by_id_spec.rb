@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Appointments", type: :request do
-  context 'Validate get appointment by id' do
+  context 'Get appointment by id' do
     let(:my_Appointment) {FactoryBot.create(:appointment)}
     let(:my_user) {FactoryBot.create(:user)}
     before do
-      get "http://localhost:3000/users/#{my_Appointment.user_id}/appointments/#{my_Appointment.id}", headers: auth_headers(my_user)
+      get "/users/#{my_Appointment.user_id}/appointments/#{my_Appointment.id}", headers: auth_headers(my_user)
     end
     
     it 'returns the created appointment' do
