@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show update destroy ]
 
-  # GET /appointments
   def index
     @appointments = Appointment.where(user_id: params[:user_id])
     render json: @appointments
