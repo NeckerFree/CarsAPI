@@ -18,7 +18,7 @@ class SellersController < ApplicationController
     @seller = Seller.new(seller_params)
 
     if @seller.save
-      render json: @seller, status: :created, location: @seller
+      render json: @seller, status: :created #, location: @seller
     else
       render json: @seller.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class SellersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def seller_params
-      params.fetch(:seller, {})
+      params.fetch(:seller, {}).permit(:name, :phone)
     end
 end
