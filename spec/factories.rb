@@ -1,5 +1,10 @@
 # https://github.com/faker-ruby/faker
 FactoryBot.define do
+  factory :selection do
+    user { nil }
+    car { nil }
+  end
+
     factory :user do
         age {Faker::Number.within(range: 18..100)}
         phone {Faker::PhoneNumber.phone_number}
