@@ -3,12 +3,16 @@ class UsersController < ApplicationController
 
     # GET /users or /users.json
     def index
-      @user = User.all
+      # @user = User.all
+      @user = User.where(email: params[:email])
       render json: @user
     end
   
     # GET /users/1 or /users/1.json
-    def show; end
+    def show
+      # @user = User.where(params[:email])
+      # render json: @user  
+    end
   
     # POST /users or /users.json
     def create
