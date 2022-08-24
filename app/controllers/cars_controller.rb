@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
   # GET /cars
   def index
-    @cars = Car.all
+    @cars = Car.where(id: params[:id])
 
     render json: @cars
   end
