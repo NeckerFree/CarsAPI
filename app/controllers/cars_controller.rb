@@ -3,13 +3,14 @@ class CarsController < ApplicationController
 
   # GET /cars
   def index
-    @cars = Car.where(id: params[:id])
+    @cars = Car.where.not(selections: Selection.where(user_id: params[:user_id]))
 
     render json: @cars
   end
 
   # GET /cars/1
   def show
+    @car = Car.find(params[:id])
     render json: @car
   end
 
