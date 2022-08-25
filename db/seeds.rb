@@ -1,6 +1,8 @@
-first=User.create(name: 'Amrendra K' ,email: 'amrendra@mail.com' , password: '123456' , password_confirmation: '123456', age: '40', phone:"9930109581")
-second=User.create(name: 'Elio C' ,email: 'elio@mail.com' , password: '123456' , password_confirmation: '123456', age: '45', phone:"456123789")
-third=User.create(name: 'Oscar B' ,email: 'oscar@mail.com' , password: '123456' , password_confirmation: '123456', age: '35', phone:"789123456")
+include FactoryBot::Syntax::Methods
+
+first=User.create(name: 'Amrendra K' ,email: 'amrendra@gmail.com' , password: '123456' , password_confirmation: '123456', age: '40', phone:"9930109581")
+second=User.create(name: 'Elio C' ,email: 'elio@gmail.com' , password: '123456' , password_confirmation: '123456', age: '45', phone:"456123789")
+third=User.create(name: 'Oscar B' ,email: 'oscar@gmail.com' , password: '123456' , password_confirmation: '123456', age: '35', phone:"789123456")
 
 one = Car.create(model: 'Coupe', color: 'Yellow', description: "The Chevrolet Camaro is a mid-size American automobile manufactured by Chevrolet, classified as a pony car. It first went on sale on September 29, 1966, for the 1967 model year and was designed as a competing model to the Ford Mustang.", price: '31.500', brand: 'Chevrolet', photo: 'chevroletCamaro.png' )
 two = Car.create(model: 'Fortuner TRD', color: 'Yellow', description: "It returns a certified mileage of 12.9 kmpl. This TRD Celebratory Edition variant comes with an engine putting out 174 bhp @ 3400 rpm and 450 Nm @ 1600 rpm of max power and max torque respectively.", price: '44.633', brand: 'Toyota', photo: 'toyotatrd.png' )
@@ -16,3 +18,18 @@ Selection.create(user_id: second.id, car_id: four.id)
 
 Selection.create(user_id: third.id, car_id: one.id)
 Selection.create(user_id: third.id, car_id: five.id)
+
+# seller1 = Seller.create(name: 'Elio1', phone:'9930109581')
+# seller2 = Seller.create(name: 'Elio2', phone:'9930109582')
+# seller3 = Seller.create(name: 'Elio3', phone:'9930109583')
+# seller4 = Seller.create(name: 'Elio4', phone:'9930109584')
+# seller5 = Seller.create(name: 'Elio5', phone:'9930109585')
+
+#  my_user = create(:user)
+#  my_car = create(:car)
+(1..5).each do
+    my_seller = create(:seller) 
+    my_city = create(:city)
+end
+#  my_appointment= create(:appointment)
+
