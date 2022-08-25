@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :countries
   resources :sellers
   resources :cars
+  post 'useremail', to: 'users#useremail'
   post 'authenticate', to: 'authentication#authenticate'
 end
 
