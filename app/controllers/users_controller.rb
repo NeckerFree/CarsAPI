@@ -14,6 +14,11 @@ class UsersController < ApplicationController
       # render json: @user  
     end
   
+    def useremail
+      @user = User.find_by_email!(params[:email])
+      render json: @user
+    end
+
     # POST /users or /users.json
     def create
 
