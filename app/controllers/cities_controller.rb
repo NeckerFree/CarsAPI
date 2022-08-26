@@ -3,8 +3,8 @@ class CitiesController < ApplicationController
 
   # GET /cities
   def index
-    @cities = City.all
-
+    puts params
+    @cities = City.where(country_id: params[:country_id])
     render json: @cities
   end
 
@@ -46,6 +46,6 @@ class CitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def city_params
-      params.fetch(:city, {})
+      params.fetch(:city, {}).permit(:country_id, :id)
     end
 end
