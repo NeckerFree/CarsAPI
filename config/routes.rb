@@ -4,8 +4,10 @@ Rails.application.routes.draw do
     resources :appointments
     resources :selections
   end  
-  resources :cities
-  resources :countries
+
+  resources :countries do
+    resources :cities
+  end
   resources :sellers
   resources :cars
   post 'useremail', to: 'users#useremail'

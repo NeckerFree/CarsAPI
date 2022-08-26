@@ -19,6 +19,10 @@ Selection.create(user_id: second.id, car_id: four.id)
 Selection.create(user_id: third.id, car_id: one.id)
 Selection.create(user_id: third.id, car_id: five.id)
 
+City.create(country_id: '1', name: 'Aara')
+City.create(country_id: '1', name: 'Patna')
+City.create(country_id: '1', name: 'Delhi')
+
 # seller1 = Seller.create(name: 'Elio1', phone:'9930109581')
 # seller2 = Seller.create(name: 'Elio2', phone:'9930109582')
 # seller3 = Seller.create(name: 'Elio3', phone:'9930109583')
