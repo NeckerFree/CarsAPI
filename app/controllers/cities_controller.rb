@@ -1,7 +1,7 @@
 class CitiesController < ApplicationController
   before_action :set_city, only: %i[ show update destroy ]
 
-  # GET /cities
+  # GET /cities #Shows all city names of country id
   def index
     puts params
     @cities = City.where(country_id: params[:country_id])
