@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :selections
   resources :users do
     resources :appointments
     resources :selections

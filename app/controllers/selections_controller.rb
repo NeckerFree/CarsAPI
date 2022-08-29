@@ -1,4 +1,5 @@
 class SelectionsController < ApplicationController
+  before_action :authenticate_request
   before_action :set_selection, only: %i[ show update destroy ]
 
   # GET /selections
