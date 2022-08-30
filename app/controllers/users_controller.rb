@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   
     # GET /users/1 or /users/1.json
     def show
-      # @user = User.where(params[:email])
-      # render json: @user  
+      @user = User.where(email: params[:id])
+      render json: @user
     end
   
     def useremail
