@@ -1,16 +1,16 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name: CarsAPI
+# Final capstone project: CarsAPI
 
-> This is a back-end application: A database that stores data to handle the car front-end app. 
-> The API was set to be accessed only when the user has been authenticated and each of the requests is made along with a token.
+> This is a back-end application: A database that stores data to handle the car front-end app CRUD operations. 
+> The API was set to be accessed only when the user has been authenticated and each of the requests is made with JWT.
 
 
 ## Built With
 
 - Ruby on Rails
 - PostgreSql
-- Boostrap
+- FactoryBot - Faker
 - Rspec
 
 ## Live Demo (if available)
@@ -55,7 +55,7 @@ To get a local copy up and running follow these simple example steps.
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=NeckerFree&show_icons=true&locale=en&" alt="NeckerFree" /></p>
 
 
-👤 Oscar Bermudez
+👤 **Oscar Bermudez**
 
 - GitHub: [@githubhandle](https://github.com/zkr024)
 - Twitter: [@twitterhandle](https://twitter.com/zkr024)
@@ -81,12 +81,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
