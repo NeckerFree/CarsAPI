@@ -1,15 +1,17 @@
 class CarsController < ApplicationController
+  before_action :authenticate_request
   before_action :set_car, only: %i[ show update destroy ]
 
   # GET /cars
   def index
-    @cars = Car.where(id: params[:id])
+    @cars = Car.where.not(selections: Selection.where(user_id: params[:user_id]))
 
     render json: @cars
   end
 
   # GET /cars/1
   def show
+    @car = Car.find(params[:id])
     render json: @car
   end
 
