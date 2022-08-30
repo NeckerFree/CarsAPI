@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-    let(:my_user) {FactoryBot.create(:user)}
+  let(:my_user) { FactoryBot.create(:user) }
   describe 'get user by email' do
     before do
-        get 'http://localhost:3000/users', params: {email: my_user.email}
+      get 'http://localhost:3000/users', params: { email: my_user.email }
     end
-    
+
     it 'returns user id' do
       expect(json['id']).to be > 0
     end
