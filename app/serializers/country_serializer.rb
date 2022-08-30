@@ -1,5 +1,5 @@
 class CountrySerializer < ActiveModel::Serializer
-    attributes :id, :name
+  attributes :id, :name
 
-    has_many :cities
+  has_many :cities
 end

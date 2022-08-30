@@ -6,5 +6,4 @@ class UserSerializer < ActiveModel::Serializer
   has_many :cars, through: :appointments, dependent: :destroy
   has_many :selections, dependent: :destroy
   has_many :cars, through: :selections, dependent: :destroy
-
 end

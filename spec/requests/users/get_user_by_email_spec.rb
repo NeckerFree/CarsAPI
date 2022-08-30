@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   let(:my_user) { FactoryBot.create(:user) }
-  describe 'POST / authenticate' do
+  describe 'get user by email' do
     before do
-      post 'http://localhost:3000/authenticate', params: { email: my_user.email, password: my_user.password }
+      get 'http://localhost:3000/users', params: { email: my_user.email }
     end
 
-    it 'returns token' do
-      expect(json['auth_token'].length).to be > 0
+    it 'returns user id' do
+      expect(json['id']).to be > 0
     end
 
     it 'returns status code 200' do
