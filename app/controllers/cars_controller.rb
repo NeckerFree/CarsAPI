@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :authenticate_request
-  before_action :set_car, only: %i[ show update destroy ]
+  before_action :set_car, only: %i[show update destroy]
 
   # GET /cars
   def index
@@ -41,13 +41,14 @@ class CarsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_car
-      @car = Car.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def car_params
-      params.fetch(:car, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_car
+    @car = Car.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def car_params
+    params.fetch(:car, {})
+  end
 end

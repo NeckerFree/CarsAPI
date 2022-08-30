@@ -1,5 +1,5 @@
 class SellersController < ApplicationController
-  before_action :set_seller, only: %i[ show update destroy ]
+  before_action :set_seller, only: %i[show update destroy]
 
   # GET /sellers
   def index
@@ -18,7 +18,7 @@ class SellersController < ApplicationController
     @seller = Seller.new(seller_params)
 
     if @seller.save
-      render json: @seller, status: :created #, location: @seller
+      render json: @seller, status: :created # , location: @seller
     else
       render json: @seller.errors, status: :unprocessable_entity
     end
@@ -39,13 +39,14 @@ class SellersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_seller
-      @seller = Seller.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def seller_params
-      params.fetch(:seller, {}).permit(:name, :phone)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_seller
+    @seller = Seller.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def seller_params
+    params.fetch(:seller, {}).permit(:name, :phone)
+  end
 end
