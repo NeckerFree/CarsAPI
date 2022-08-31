@@ -1,15 +1,12 @@
 require 'swagger_helper'
 
 RSpec.describe 'countries', type: :request do
-
   let(:access_token) { FactoryBot.create(:api_key).access_token }
   let(:Authorization) { "Bearer #{access_token}" }
 
   path '/countries' do
-
     get('list countries') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -33,10 +30,9 @@ RSpec.describe 'countries', type: :request do
         properties: {
           name: { type: :string }
         },
-        required: [ 'name' ]
+        required: ['name']
       }
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {

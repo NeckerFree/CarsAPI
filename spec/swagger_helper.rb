@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.configure do |config|
@@ -22,15 +20,15 @@ RSpec.configure do |config|
         version: 'v1'
       },
       paths: {},
-      # securityDefinitions: 
-      #   { Bearer: { description: "...", type: :apiKey, name: 'Authorization', in: :header } }, 
-      securityDefinitions:{
-          "JWT": {
-            "description": "",
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
-          },
+      # securityDefinitions:
+      #   { Bearer: { description: "...", type: :apiKey, name: 'Authorization', in: :header } },
+      securityDefinitions: {
+        JWT: {
+          description: '',
+          type: 'apiKey',
+          name: 'Authorization',
+          in: 'header'
+        }
       },
       servers: [
         {

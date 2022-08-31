@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'cities', type: :request do
-
   path '/countries/{country_id}/cities' do
     # You'll want to customize the parameter types...
     parameter name: 'country_id', in: :path, type: :string, description: 'country_id'

@@ -1,9 +1,7 @@
 require 'swagger_helper'
 
 RSpec.describe 'authentication', type: :request do
-
   path '/authenticate' do
-
     post('authenticate authentication') do
       tags 'JWT'
       consumes 'application/json'
@@ -13,10 +11,9 @@ RSpec.describe 'authentication', type: :request do
           email: { type: :string },
           password: { type: :string }
         },
-        required: [ 'name', 'password' ]
+        required: %w[name password]
       }
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -29,4 +26,3 @@ RSpec.describe 'authentication', type: :request do
     end
   end
 end
-

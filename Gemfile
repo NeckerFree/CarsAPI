@@ -64,10 +64,9 @@ group :development do
 end
 
 # Gemfile
-gem 'rswag-api'
 gem 'rswag'
+gem 'rswag-api'
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'rswag-specs'
 end
