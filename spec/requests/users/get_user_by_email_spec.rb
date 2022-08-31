@@ -8,7 +8,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'returns user id' do
-      expect(json['id']).to be > 0
+      expect(json.size).to eq(1)
     end
 
     it 'returns status code 200' do
