@@ -1,0 +1,416 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/users/{user_id}/appointments":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list appointments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create appointment
+      responses:
+        '200':
+          description: successful
+  "/users/{user_id}/appointments/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show appointment
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update appointment
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update appointment
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete appointment
+      responses:
+        '200':
+          description: successful
+  "/authenticate":
+    post:
+      summary: authenticate authentication
+      tags:
+      - JWT
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - password
+  "/users/{user_id}/cars":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list cars
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create car
+      responses:
+        '200':
+          description: successful
+  "/users/{user_id}/cars/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show car
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update car
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update car
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete car
+      responses:
+        '200':
+          description: successful
+  "/countries/{country_id}/cities":
+    parameters:
+    - name: country_id
+      in: path
+      description: country_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list cities
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create city
+      responses:
+        '200':
+          description: successful
+  "/countries/{country_id}/cities/{id}":
+    parameters:
+    - name: country_id
+      in: path
+      description: country_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show city
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update city
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update city
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete city
+      responses:
+        '200':
+          description: successful
+  "/countries":
+    get:
+      summary: list countries
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create country
+      tags:
+      - Country
+      security:
+      - Bearer: {}
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+  "/countries/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show country
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update country
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update country
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete country
+      responses:
+        '200':
+          description: successful
+  "/users/{user_id}/selections":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: list selections
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create selection
+      responses:
+        '200':
+          description: successful
+  "/users/{user_id}/selections/{id}":
+    parameters:
+    - name: user_id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: string
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show selection
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update selection
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update selection
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete selection
+      responses:
+        '200':
+          description: successful
+  "/sellers":
+    get:
+      summary: list sellers
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create seller
+      responses:
+        '200':
+          description: successful
+  "/sellers/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show seller
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update seller
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update seller
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete seller
+      responses:
+        '200':
+          description: successful
+  "/users":
+    get:
+      summary: list users
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+                age:
+                  type: integer
+                phone:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+              - password_confirmationage
+              - phone
+  "/users/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show user
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update user
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update user
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete user
+      responses:
+        '200':
+          description: successful
+  "/useremail":
+    post:
+      summary: useremail user
+      responses:
+        '200':
+          description: successful
+securityDefinitions:
+  JWT:
+    description: ''
+    type: apiKey
+    name: Authorization
+    in: header
+servers:
+- url: http://{defaultHost}
+  variables:
+    defaultHost:
+      default: localhost:3000/
