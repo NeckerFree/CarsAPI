@@ -13,7 +13,13 @@
 - FactoryBot - Faker
 - Rspec
 
-## Live Demo (if available)
+### Initial state of Kanban board
+[Initial Kanban board](https://github.com/NeckerFree/CarsAPI/issues/23)
+
+### Link to your Kanban board
+[Actual Kanban board](https://github.com/NeckerFree/CarsAPI/projects/1)
+
+### Live Demo (if available)
 
 Soon
 

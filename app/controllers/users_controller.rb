@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_request
-
+  skip_before_action :authenticate_request, only: %i[useremail create]
+  
   # GET /users or /users.json
   def index
     @user = User.all
-    # @user = User.where(email: params[:email])
     render json: @user
   end
 
