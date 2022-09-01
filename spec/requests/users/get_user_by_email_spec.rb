@@ -4,7 +4,7 @@ RSpec.describe 'Users', type: :request do
   let(:my_user) { FactoryBot.create(:user) }
   describe 'get user by email' do
     before do
-      get 'http://localhost:3000/users', params: { email: my_user.email }
+      get 'http://localhost:3000/users', params: { email: my_user.email }, headers: auth_headers(my_user)
     end
 
     it 'returns user id' do
