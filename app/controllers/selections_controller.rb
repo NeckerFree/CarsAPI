@@ -17,9 +17,10 @@ class SelectionsController < ApplicationController
   # POST /selections
   def create
     @selection = Selection.new(selection_params)
+    puts selection_params
 
     if @selection.save
-      render json: @selection, status: :created, location: @selection
+      render json: @selection, status: :created
     else
       render json: @selection.errors, status: :unprocessable_entity
     end
