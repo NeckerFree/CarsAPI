@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # skip_before_action :authenticate_request
+  skip_before_action :authenticate_request, only: 'create'
 
   # GET /users or /users.json
   def index
@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    skip_before_action :authenticate_request
     @user = User.new(user_params)
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
