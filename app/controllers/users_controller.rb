@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_request, :only => "create"
+  skip_before_action :authenticate_request, only: 'create'
 
   # GET /users or /users.json
   def index
