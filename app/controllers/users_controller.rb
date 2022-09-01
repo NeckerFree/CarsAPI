@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_request, only: %i[useremail create]
-  
+
   # GET /users or /users.json
   def index
     @user = User.all
