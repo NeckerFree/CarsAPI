@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :cars, through: :selections, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
+  validates :name, presence: true, length: { in: 3..250 }
+  validates :age, numericality: { in: 18..100 }
 end
