@@ -34,7 +34,6 @@ gem 'rswag'
 gem 'rswag-api'
 
 group :development, :test do
-
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   gem 'factory_bot_rails'
@@ -42,6 +41,4 @@ group :development, :test do
   gem 'faker'
 
   gem 'rswag-specs'
-
 end
-
