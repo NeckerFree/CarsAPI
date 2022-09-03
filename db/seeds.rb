@@ -1,4 +1,4 @@
-include FactoryBot::Syntax::Methods
+# include FactoryBot::Syntax::Methods
 
 first=User.create(name: 'Amrendra K' ,email: 'amrendra@gmail.com' , password: '123456' , password_confirmation: '123456', age: '40', phone:"9930109581")
 second=User.create(name: 'Elio C' ,email: 'elio@gmail.com' , password: '123456' , password_confirmation: '123456', age: '45', phone:"456123789")
