@@ -36,21 +36,28 @@ Selection.create(user_id: second.id, car_id: four.id)
 Selection.create(user_id: third.id, car_id: one.id)
 Selection.create(user_id: third.id, car_id: five.id)
 
-City.create(country_id: '1', name: 'Aara')
-City.create(country_id: '1', name: 'Patna')
-City.create(country_id: '1', name: 'Delhi')
+Country.create(name: 'Colombia')
+Country.create(name: 'India')
 
-# seller1 = Seller.create(name: 'Elio1', phone:'9930109581')
-# seller2 = Seller.create(name: 'Elio2', phone:'9930109582')
-# seller3 = Seller.create(name: 'Elio3', phone:'9930109583')
-# seller4 = Seller.create(name: 'Elio4', phone:'9930109584')
-# seller5 = Seller.create(name: 'Elio5', phone:'9930109585')
+City.create(country_id: '1', name: 'Bogotá')
+City.create(country_id: '1', name: 'Leticia')
+City.create(country_id: '1', name: 'Riohacha')
+
+City.create(country_id: '2', name: 'Aara')
+City.create(country_id: '2', name: 'Patna')
+City.create(country_id: '2', name: 'Delhi')
+
+seller1 = Seller.create(name: 'Seller # 1', phone:'9930109581')
+seller2 = Seller.create(name: 'Seller # 2', phone:'9930109582')
+seller3 = Seller.create(name: 'Seller # 3', phone:'9930109583')
+seller4 = Seller.create(name: 'Seller # 4', phone:'9930109584')
+seller5 = Seller.create(name: 'Seller # 5', phone:'9930109585')
 
 #  my_user = create(:user)
 #  my_car = create(:car)
-(1..5).each do
-    my_seller = create(:seller) 
-    my_city = create(:city)
-end
+# (1..5).each do
+#     my_seller = create(:seller) 
+#     my_city = create(:city)
+# end
 #  my_appointment= create(:appointment)
 
