@@ -2,6 +2,12 @@ class ApplicationController < ActionController::API
   before_action :authenticate_request
   attr_reader :current_user
 
+  def user_id
+    if decoded_token
+      decoded_token[0]["user_id"]
+    end
+  end
+
   private
 
   def authenticate_request
