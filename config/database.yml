@@ -86,4 +86,4 @@ test:
 #
 production:
   <<: *default
-  url: "postgres://mv_necker_db_user:RMg1VbwMA4nflYaAvi02e88vPmrg1mcd@dpg-ce72rj4gqg4eemope2sg-a.oregon-postgres.render.com/mv_necker_db"
+  url: <%= ENV["MY_APP_DATABASE_URL"] %>
