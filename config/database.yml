@@ -86,4 +86,8 @@ test:
 #
 production:
   <<: *default
+<<<<<<< HEAD
   url: ENV["MY_APP_DATABASE_URL"]
+=======
+  url: <%= ENV["MY_APP_DATABASE_URL"] %>
+>>>>>>> c4282c52823a93cd3eeb8a8fa9afa1e81237f67f
